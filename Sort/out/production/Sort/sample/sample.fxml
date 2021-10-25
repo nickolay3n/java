@@ -25,7 +25,7 @@
             <TextField id="mySortTimer" fx:id="TimerIDElapsed" editable="false" layoutX="417.0" layoutY="14.0" prefHeight="25.0" prefWidth="217.0" text="Time Elaspsed:" />
             <TextArea fx:id="TextArrayID" editable="false" layoutX="14.0" layoutY="77.0" prefHeight="320.0" prefWidth="623.0" style="-fx-background-radius: 5; -fx-border-width: 2;" wrapText="true" />
             <TextArea fx:id="TextArrayIDSorted" editable="false" layoutX="14.0" layoutY="405.0" prefHeight="320.0" prefWidth="623.0" style="-fx-background-radius: 5; -fx-border-width: 2;" wrapText="true" />
-            <SplitMenuButton id="myTypeSort" fx:id="ButtonIDSortList" layoutX="14.0" layoutY="45.0" mnemonicParsing="false" onAction="#ButtonSortListPressed" prefHeight="25.0" prefWidth="123.0" text="BubbleSort">
+            <SplitMenuButton id="myTypeSort" fx:id="ButtonIDSortList" layoutX="14.0" layoutY="45.0" mnemonicParsing="false" onAction="#ButtonSortListPressed" prefHeight="25.0" prefWidth="258.0" text="Type To Sort">
               <items>
                 <MenuItem mnemonicParsing="false" text="BubbleSort" />
                 <MenuItem mnemonicParsing="false" text="NextSort" />

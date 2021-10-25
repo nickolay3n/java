@@ -1,14 +1,16 @@
 package sample;
 
         import java.net.URL;
+        import java.time.*;
+        import java.time.temporal.*;
+        import java.util.Date;
         import java.util.ResourceBundle;
-
         import javafx.event.ActionEvent;
+        import javafx.event.EventHandler;
         import javafx.fxml.FXML;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.SplitMenuButton;
-        import javafx.scene.control.TextArea;
-        import javafx.scene.control.TextField;
+        import javafx.scene.control.*;
+
+        import static java.lang.System.currentTimeMillis;
 
 public class Controller {
 
@@ -26,7 +28,6 @@ public class Controller {
 
     @FXML
     private  TextArea TextArrayID;
-    //public static void TextArrayIDSetter(String text){TextArrayID.setText(text);}
 
     @FXML
     private SplitMenuButton ButtonIDSortList;
@@ -40,27 +41,53 @@ public class Controller {
     @FXML
     private Button ButtonIDGenerate;
 
-    @FXML
+    @FXML//сгенерировать массив рандомов
     public void ButtonGeneratePressed(ActionEvent event) {
         TextArrayID.setText(MySort.printArray(400));
     }
 
-    @FXML
-    public void ButtonSortPressed(ActionEvent event) {
-        TextArrayIDSorted.setText(MySort.myArrayList.toString());
+    @FXML//отсортировать
+    public void ButtonSortPressed(ActionEvent event) throws InterruptedException {
+        long tmp = currentTimeMillis();
+        TextArrayIDSorted.setText(MySort.sort(ButtonIDSortList.getText()));//Thread.sleep(7);
+        TimerIDElapsed.setText("Прошло " + (currentTimeMillis()-tmp) + " Миллисекунд");
     }
 
-    @FXML
+    @FXML//очистить формы
     public void ButtonClearPressed(ActionEvent event) {
         TextArrayID.setText("");
         TextArrayIDSorted.setText("");
     }
-    @FXML
+
+    @FXML//кнопка выборки типа сортировки
     public void ButtonSortListPressed(ActionEvent event) {
+        //TextArrayIDSorted.setText(ButtonIDSortList.toString());
+        TextArrayIDSorted.setText( ButtonIDSortList.getItems().toString());
     }
 
     @FXML
     void initialize() {
+        //отрисовка кнопки сортировки
+        ButtonIDSortList.getItems().clear();
+        MenuItem itemSortBubble = new MenuItem("Сортировка пузырьком");
+        MenuItem itemSortPiramid = new MenuItem("Сортировка пирамидой");
+
+        boolean b = ButtonIDSortList.getItems().addAll(itemSortBubble,itemSortPiramid);
+
+        itemSortBubble.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent actionEvent){
+                ButtonIDSortList.setText(itemSortBubble.getText());
+            }
+        });
+
+        itemSortPiramid.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent actionEvent){
+                ButtonIDSortList.setText(itemSortPiramid.getText());
+            }
+        });
+
 //        assert ButtonIDClear != null : "fx:id=\"ButtonIDClear\" was not injected: check your FXML file 'sample.fxml'.";
 //        assert TimerIDElapsed != null : "fx:id=\"TimerIDElapsed\" was not injected: check your FXML file 'sample.fxml'.";
 //        assert TextArrayID != null : "fx:id=\"TextArrayID\" was not injected: check your FXML file 'sample.fxml'.";
@@ -71,5 +98,4 @@ public class Controller {
 
     }
 
-    //public void ButtonGeneratePressed(ActionEvent actionEvent) {    }
 }
