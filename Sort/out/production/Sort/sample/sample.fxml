@@ -1,8 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane id="MySortMainWindow" prefHeight="750.0" prefWidth="650.0">
+         <children>
+            <Button id="mySortGenerate" fx:id="ButtonIDGenerate" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonGeneratePressed" text="Generate New Array" />
+            <Button id="MySortSort" fx:id="ButtonIDSort" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonSortPressed" prefHeight="25.0" prefWidth="123.0" text="Sort Array" />
+            <Button id="mySortClear" fx:id="ButtonIDClear" layoutX="283.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonClearPressed" prefHeight="25.0" prefWidth="123.0" text="Clear" />
+            <TextField id="mySortTimer" fx:id="TimerIDElapsed" editable="false" layoutX="417.0" layoutY="14.0" prefHeight="25.0" prefWidth="217.0" text="Time Elaspsed:" />
+            <TextArea fx:id="TextArrayID" editable="false" layoutX="14.0" layoutY="77.0" prefHeight="320.0" prefWidth="623.0" style="-fx-background-radius: 5; -fx-border-width: 2;" wrapText="true" />
+            <TextArea fx:id="TextArrayIDSorted" editable="false" layoutX="14.0" layoutY="405.0" prefHeight="320.0" prefWidth="623.0" style="-fx-background-radius: 5; -fx-border-width: 2;" wrapText="true" />
+            <SplitMenuButton id="myTypeSort" fx:id="ButtonIDSortList" layoutX="14.0" layoutY="45.0" mnemonicParsing="false" onAction="#ButtonSortListPressed" prefHeight="25.0" prefWidth="123.0" text="BubbleSort">
+              <items>
+                <MenuItem mnemonicParsing="false" text="BubbleSort" />
+                <MenuItem mnemonicParsing="false" text="NextSort" />
+                  <MenuItem mnemonicParsing="false" text="NextSort" />
+              </items>
+            </SplitMenuButton>
+         </children>
+      </Pane>
+   </children>
 </GridPane>
