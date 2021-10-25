@@ -47,11 +47,13 @@ public class Controller {
 
     @FXML
     public void ButtonSortPressed(ActionEvent event) {
+        TextArrayIDSorted.setText(MySort.myArrayList.toString());
     }
 
     @FXML
     public void ButtonClearPressed(ActionEvent event) {
-
+        TextArrayID.setText("");
+        TextArrayIDSorted.setText("");
     }
     @FXML
     public void ButtonSortListPressed(ActionEvent event) {
