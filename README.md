@@ -1,5 +1,10 @@
 # Here I'll store my little Java Projects for study
 
+## JarValidator
+
+[JarValidator](https://github.com/nickolay3n/java/tree/master/JarValidator) delete corrupted jar files from maven repository
+
+
 ## JavaMail
 
 [JavaMail/Bingo](https://github.com/nickolay3n/java/tree/master/JavaMail/Bingo) is a example of javax.mail.jar library usage
