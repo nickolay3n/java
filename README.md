@@ -18,7 +18,16 @@
 
 + [BubbleSort]
 
+## here i dockerize my projects
 
+[dockers/](https://github.com/nickolay3n/java/tree/master/dockers) dockerize projects
+
+## dockers/postgres/
+
+[dockers/postgres/](https://github.com/nickolay3n/java/tree/master/dockers/postgres) is a example of postgres docker with pgadmin usage in docker-compose edition
+
++ [postgresql]
++ [pgadmin]
 
 
 ## Questions
