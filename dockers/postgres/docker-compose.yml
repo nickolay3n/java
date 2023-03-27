@@ -9,9 +9,12 @@ services:
       POSTGRES_DB: "dbsostav"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "1234"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes: 
-      - ./init/1.sql:/docker-entrypoint-initdb.d/1.sql
-      - ./init/init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
+      - ./data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+#      - ./init/1.sql:/docker-entrypoint-initdb.d/1.sql
+#      - ./init/init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
     ports:
       - "5430:5432"  
   pgadmin:

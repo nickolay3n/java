@@ -25,6 +25,19 @@ dockers/postgres/
 + [postgresql]
 + [pgadmin]
 
+##Вариант запуска контейнера с командной строки
+docker run \
+  --name postgres_sostav \
+  -p 5430:5432 \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=1234 \
+  -e POSTGRES_DB=dbsostav \
+  -e PGDATA=/var/lib/postgresql/data/pgdata \
+  -d \
+  -v "./data":/var/lib/postgresql/data \
+  -v "./init/1.sql":/docker-entrypoint-initdb.d/ \
+  postgres:13.3
+
 ## Questions
 
 You can ask me here: nickolay3n@gmail.com
