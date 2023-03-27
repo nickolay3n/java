@@ -9,8 +9,8 @@ docker-compose down;docker-compose pull;docker-compose rm -f
 [pgadmin](http://localhost:5050/browser/)http://localhost:5050/browser/
 
 #подключиться к контейнеру можно:
-docker container exec -it c9f /bin/sh
-
+docker container exec -it postgres_sostav /bin/sh
+psql -U postgres -d dbsostav
 docker build -t nickolay3n/test:postgres-docker-dbsostav .
 docker run --name postgres-docker-dbsostav -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=dbsostav -d -v "C:\progs\_docker\postgres\init":/docker-entrypoint-initdb.d postgres:13.3
 
