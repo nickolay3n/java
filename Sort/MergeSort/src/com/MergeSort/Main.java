@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+
+//*** СОРТИРОВКА СЛИЯНИЕМ ***
+// Сложность данного алгоритма скромна — O(n2)
+
 public class Main {
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);}
@@ -15,21 +20,34 @@ public class Main {
         //заполнение
         for (int i = 0; i < 100; i++)
             mylist.add(getRandomNumber(1,1000));
+        mylist.add(10,null);
 
         System.out.println("Not sorted mass:");
         System.out.println(mylist);
+        System.out.println("\n\r"+mylist.size());
         mylist = MergeSort(mylist);
         System.out.println("Sorted mass:");
         System.out.println(mylist);
+        System.out.println("\n\r"+mylist.size());
     }
 
     public static ArrayList<Integer> MergeSort(ArrayList<Integer> notSortedList)
     {
-        System.out.println("\n\r"+notSortedList.size());
-        // Math.ceil(notSortedList.size()/2) - количество пар на первом этапе.
-        List<ArrayList<Integer>> mass = new ArrayList();
+        //удаляем все null элементы
+        int nullCountVariables=0;
         for(int i=0; i<notSortedList.size(); i++){
-            ArrayList<Integer> part = new ArrayList<Integer>();
+            if(notSortedList.get(i)==null)
+            {
+                notSortedList.remove(i);
+                nullCountVariables++;
+            }
+        }
+        //удаляем все null элементы------
+
+        // Math.ceil(notSortedList.size()/2) - количество пар на первом этапе.
+        List<ArrayList<Integer>> mass = new ArrayList();//массив корзин
+        for(int i=0; i<notSortedList.size(); i++){
+            ArrayList<Integer> part = new ArrayList<Integer>();//создаем корзину
             part.add(notSortedList.get(i));
             i++;
             if(i>=notSortedList.size())
@@ -38,17 +56,15 @@ public class Main {
                 break;
             }
             part.add(notSortedList.get(i));
-            mass.add(part);
             if(part.get(0)>part.get(1)) Collections.swap(part, 0, 1);//сортируем первые корзины
+            mass.add(part);//добавляем корзину в массив корзин
+
         }
         // в результате List mass в котором содержатся маленькие корзины part
         // которые потом сливаются во все большие корзины
         // и количество корзин с каждым разом уменьшается
         // mass [  [part], [part], [part] ]
-        //ArrayList<Integer> mass= new ArrayList<Integer>[2] ;
-        //MiddleMergeSort(ArrayList<Integer> mass[])
 
-        //while(notSortedList.size()!=1)
         while(mass.size()!=1)
         {
             mass=middleMergeSort(mass);
