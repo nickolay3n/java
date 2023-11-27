@@ -18,7 +18,7 @@ public class Main {
 
         System.out.println("Not sorted mass:");
         System.out.println(mylist);
-        MergeSort(mylist);
+        mylist = MergeSort(mylist);
         System.out.println("Sorted mass:");
         System.out.println(mylist);
     }
@@ -48,8 +48,12 @@ public class Main {
         //ArrayList<Integer> mass= new ArrayList<Integer>[2] ;
         //MiddleMergeSort(ArrayList<Integer> mass[])
 
-        while(notSortedList.size()!=1)
+        //while(notSortedList.size()!=1)
+        while(mass.size()!=1)
+        {
             mass=middleMergeSort(mass);
+
+        }
         notSortedList= mass.get(0);
         return notSortedList;
     }
@@ -64,24 +68,42 @@ public class Main {
             ArrayList<Integer> notSortedPart1 = mass.get(i);//получаем первую корзину
             i++;
             ArrayList<Integer> sortedPart = new ArrayList<Integer>();
-            if(i < mass.size())
+            if(i >= mass.size())
             {
                 sortedPart=notSortedPart1;//если осталаст одна корзина то просто оставляем ее
+                sortedMass.add(sortedPart);
                 break;
             }
             ArrayList<Integer> notSortedPart2 = mass.get(i);//получаем вторую корзину
             //сливаем две корзины
-            for (int j = 0; j < notSortedPart1.size(); j++) {
-                for (int k = 0; k < notSortedPart2.size(); k++) {
-                    if(notSortedPart1.get(j)<notSortedPart2.get(k))
+            while(true)
+            {
+                if(notSortedPart2.size()==0 && notSortedPart1.size()==0) break;
+                if(notSortedPart2.size()==0 && notSortedPart1.size()!=0)
+                {
+                    sortedPart.add(notSortedPart1.get(0));
+                    notSortedPart1.remove(0);
+                    continue;
+                }
+                if(notSortedPart2.size()!=0 && notSortedPart1.size()==0)
+                {
+                    sortedPart.add(notSortedPart2.get(0));
+                    notSortedPart2.remove(0);
+                    continue;
+                }
+                if(notSortedPart2.size()!=0 && notSortedPart1.size()!=0)
+                {
+                    if(notSortedPart1.get(0)<=notSortedPart2.get(0)) //сравнение при слиянии корзин
                     {
-                        sortedPart.add(notSortedPart1.get(j));
-                        j++;
+                        sortedPart.add(notSortedPart1.get(0));
+                        notSortedPart1.remove(0);
+                        continue;
                     }
                     else
                     {
-                        sortedPart.add(notSortedPart2.get(k));
-                        k++;
+                        sortedPart.add(notSortedPart2.get(0));
+                        notSortedPart2.remove(0);
+                        continue;
                     }
                 }
             }
