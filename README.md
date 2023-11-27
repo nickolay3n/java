@@ -14,9 +14,10 @@
 
 ## Sort
 
-[Sort](https://github.com/nickolay3n/java/tree/master/Sort)  is an open source project with various methods to sort:
+[Sort](https://github.com/nickolay3n/java/tree/master/Sort/BubbleSort)  is an open source project with various methods to sort:
 
-+ [BubbleSort]
++ [BubbleSort] сортировка пузырьком
++ [MergeSort] сортировка слиянием
 
 ## here i dockerize my projects
 
