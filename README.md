@@ -16,7 +16,7 @@
 
 [Sort](https://github.com/nickolay3n/java/tree/master/Sort/BubbleSort)  is an open source project with various methods to sort:
 
-+ [BubbleSort] сортировка пузырьком
++ [BubbleSort](https://github.com/nickolay3n/java/tree/master/Sort/BubbleSort) сортировка пузырьком
 + [MergeSort] сортировка слиянием
 
 ## here i dockerize my projects
