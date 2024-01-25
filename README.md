@@ -21,6 +21,8 @@
 
 ## here i dockerize my projects
 
+[web socket to json file](https://github.com/nickolay3n/java/tree/master/JSON/spring-websockets%20project)
+
 [dockers](https://github.com/nickolay3n/java/tree/master/dockers) dockerize projects
 
 ## dockers/postgres
