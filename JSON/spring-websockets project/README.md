@@ -19,7 +19,7 @@ docker run --restart on-failure:5 --restart=unless-stopped -d -name jsonH nickol
 -e WEB_SOCKET_WITH_PORT=ws://localhost:8080/path \
 -e FILE_JSON_PATH=/var/log/json/docker/json_H.json \
 -e FILE_JSON_PATH_BUF=/var/log/json/docker/json_Hbuf.json \
--v /var/log/koly/json /var/log/docker/json/docker
+-v /var/log/koly/json:/var/log/docker/json/docker
 
 ### Relevant articles
 - [Intro to WebSockets with Spring](https://www.baeldung.com/websockets-spring)
